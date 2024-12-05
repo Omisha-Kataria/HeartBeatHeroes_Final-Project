@@ -7,7 +7,7 @@ package userinterface.AdministrativeRole;
 
 /**
  *
- * @author saiku
+ * @author krish19
  */
 
 
@@ -15,16 +15,9 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
-import Magic.Design.MyJLabel;
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Dimension;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import static javax.swing.SwingUtilities.getWindowAncestor;
 
 public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
