@@ -64,6 +64,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
 
         for (Organization organization : directory.getOrganizationList()) {
             Object[] row = new Object[2];
+            System.out.println(organization.getName() + organization.getRealName());
             row[0] = organization.getName();
             row[1] = organization.getRealName();
 
@@ -108,26 +109,24 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         organizationJTable.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         organizationJTable.setForeground(new java.awt.Color(204, 255, 204));
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Organization Type", "Organization Name"
-            }
+                new Object[][]{},
+                new String[]{
+                    "Organization Type", "Organization Name"
+                }
         ) {
-            Class[] types = new Class [] {
+            Class[] types = new Class[]{
                 java.lang.String.class, java.lang.String.class
             };
-            boolean[] canEdit = new boolean [] {
+            boolean[] canEdit = new boolean[]{
                 false, false
             };
 
             public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+                return types[columnIndex];
             }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return canEdit[columnIndex];
             }
         });
         organizationJTable.setGridColor(new java.awt.Color(0, 0, 0));
@@ -218,16 +217,16 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1668, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1668, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 12, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1680, -1));
@@ -288,8 +287,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
                     new javax.swing.ImageIcon(getClass().getResource("/images/approved.png"))
             );
 
-            dB4OUtil.storeSystem(system);
-
+//            dB4OUtil.storeSystem(system);
             txtOrgRealName.setText("");
 //        organizationJComboBox.removeItem(organizationJComboBox.getSelectedItem());
         }

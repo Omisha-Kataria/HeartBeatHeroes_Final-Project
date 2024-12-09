@@ -40,7 +40,7 @@ public class MainWorkArea extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         splitPane = new javax.swing.JSplitPane();
@@ -67,18 +67,16 @@ public class MainWorkArea extends javax.swing.JPanel {
         javax.swing.GroupLayout actionBarLayout = new javax.swing.GroupLayout(actionBar);
         actionBar.setLayout(actionBarLayout);
         actionBarLayout.setHorizontalGroup(
-                actionBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, actionBarLayout.createSequentialGroup()
-                                .addContainerGap(1192, Short.MAX_VALUE)
-                                .addComponent(btnLogOut)
-                                .addGap(16, 16, 16)));
+            actionBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(actionBarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnLogOut)
+                .addContainerGap(818, Short.MAX_VALUE))
+        );
         actionBarLayout.setVerticalGroup(
-                actionBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, actionBarLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(btnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addContainerGap()));
+            actionBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         splitPane.setTopComponent(actionBar);
 
@@ -88,11 +86,13 @@ public class MainWorkArea extends javax.swing.JPanel {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(splitPane));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 896, Short.MAX_VALUE)
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(splitPane));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(splitPane)
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnLogOutActionPerformed

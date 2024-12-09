@@ -25,7 +25,7 @@ public abstract class Enterprise extends Organization {
 
     // Constructor to initialize enterprise with name and type
     public Enterprise(String name, EnterpriseType type) {
-        super(name, null);
+        super(name, null, type.getValue());
         this.enterpriseType = type;
         this.supportedOrgTypes = new ArrayList<Organization.Type>();
         organizationDirectory = new OrganizationDirectory();

@@ -18,9 +18,9 @@ public class LaboratoryOrganization extends Organization {
     // Constructor for the LaboratoryOrganization class
     public LaboratoryOrganization(String name, OrganizationDirectory parent) {
         // If name is null, assign a default Laboratory value, otherwise use the provided name
-        super(name == null ? Organization.Type.Laboratory.getValue() : name, parent);
+        super(name == null ? Organization.Type.Laboratory.getValue() : name, parent, Organization.Type.Laboratory.getValue());
     }
-    
+
     // Method to get the list of roles supported by this organization
     @Override
     public ArrayList<Role> getSupportedRole() {
@@ -30,4 +30,3 @@ public class LaboratoryOrganization extends Organization {
         return roles; // Return the list of roles
     }
 }
-

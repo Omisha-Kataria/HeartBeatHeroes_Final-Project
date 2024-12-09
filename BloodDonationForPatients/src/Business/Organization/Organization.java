@@ -7,7 +7,6 @@ package Business.Organization;
 
 import Business.BloodTypes.PersonBloodTypes;
 import Business.DB4OUtil.DB4OUtil;
-import Business.EcoSystem;
 import Business.Employee.EmployeeDirectory;
 import Business.Role.Role;
 import Business.UserAccount.UserAccountDirectory;
@@ -28,7 +27,7 @@ public abstract class Organization {
     private WorkQueue workQueue;
     private EmployeeDirectory employeeDirectory;
     private UserAccountDirectory userAccountDirectory;
-    private static int counter=0;
+    private static int counter = 0;
     private ArrayList<PersonBloodTypes> allHLAs;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
 
@@ -42,17 +41,20 @@ public abstract class Organization {
         LocalClinic("Local Clinic Organization");
 
         private String value;
+
         private Type(String value) {
             this.value = value;
         }
+
         public String getValue() {
             return value;
         }
     }
 
     // Constructor to initialize the organization with name and directory
-    public Organization(String name, OrganizationDirectory directory) {
-        this.name = name;
+    public Organization(String name, OrganizationDirectory directory, String type) {
+        this.realName = name;
+        this.name = type;
         this.directory = directory;
         workQueue = new WorkQueue();  // Initialize work queue
         System.out.println("initialise work queue");

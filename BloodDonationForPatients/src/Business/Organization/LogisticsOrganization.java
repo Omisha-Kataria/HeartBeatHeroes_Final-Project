@@ -17,7 +17,7 @@ public class LogisticsOrganization extends Organization {
     
     // Constructor to initialize the LogisticsOrganization with a name and parent directory
     public LogisticsOrganization(String name, OrganizationDirectory parent) {
-        super(name == null ? Organization.Type.Logistics.getValue() : name, parent);
+        super(name == null ? Organization.Type.Logistics.getValue() : name, parent, Organization.Type.Logistics.getValue());
     }
     
     // Method to get the supported roles for the LogisticsOrganization

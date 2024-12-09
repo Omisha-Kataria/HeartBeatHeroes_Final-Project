@@ -35,6 +35,7 @@ public class OrganizationDirectory {
             organization = new HeadquarterOrganization(realName, this);
         } else if (type.getValue().equals(Organization.Type.Laboratory.getValue())){
             organization = new LaboratoryOrganization(realName, this);
+            System.out.println(this);
         } else if (type.getValue().equals(Organization.Type.LocalClinic.getValue())){
             organization = new LocalClinicOrganization(realName, this);
         } else if (type.getValue().equals(Organization.Type.Logistics.getValue())){

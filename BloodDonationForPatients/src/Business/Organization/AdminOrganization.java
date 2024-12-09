@@ -16,7 +16,7 @@ public class AdminOrganization extends Organization {
 
     // Constructor to initialize the organization with type Admin
     public AdminOrganization(String name, OrganizationDirectory parent) {
-        super(Type.Admin.getValue(), parent);
+        super(Type.Admin.getValue(), parent, Organization.Type.Admin.getValue());
     }
 
     @Override

@@ -45,7 +45,7 @@ public class EcoSystem extends Organization {
 
     // Private constructor for Singleton pattern
     private EcoSystem() {
-        super("Worldcord", null);
+        super("Heartbeat Heroes", null, null);
         networkList = new ArrayList<Network>();
         this.donorDirectory = new DonorDirectory();
         this.patientDirectory = new PatientDirectory();

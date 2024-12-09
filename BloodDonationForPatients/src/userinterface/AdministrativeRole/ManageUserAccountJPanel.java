@@ -37,8 +37,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
     private Enterprise enterprise;
     private EcoSystem system;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
-    
-    
+
     public ManageUserAccountJPanel(JPanel container, Enterprise enterprise, EcoSystem system) {
         initComponents();
         this.enterprise = enterprise;
@@ -58,18 +57,18 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
             organizationJComboBox.addItem(organization);
         }
     }
-    
-    public void populateEmployeeComboBox(Organization organization){
+
+    public void populateEmployeeComboBox(Organization organization) {
         employeeJComboBox.removeAllItems();
-        
-        for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()){
+
+        for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()) {
             employeeJComboBox.addItem(employee);
         }
     }
-    
-    private void populateRoleComboBox(Organization organization){
+
+    private void populateRoleComboBox(Organization organization) {
         roleJComboBox.removeAllItems();
-        for (Role role : organization.getSupportedRole()){
+        for (Role role : organization.getSupportedRole()) {
             roleJComboBox.addItem(role);
         }
     }
@@ -86,7 +85,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                 row[0] = ua.getEmployee();
                 row[1] = ua.getRole();
                 row[2] = ua;
-            //    row[2] = ua.getUsername();
+                //    row[2] = ua.getUsername();
                 ((DefaultTableModel) userJTable.getModel()).addRow(row);
             }
         }
@@ -129,12 +128,12 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+                jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 100, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+                jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 100, Short.MAX_VALUE)
         );
 
         setBackground(new java.awt.Color(0, 153, 153));
@@ -154,17 +153,17 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 1818, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 1818, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 12, Short.MAX_VALUE)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addGap(0, 12, Short.MAX_VALUE)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1830, -1));
@@ -227,6 +226,11 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
 
         employeeJComboBox.setBackground(new java.awt.Color(0, 102, 102));
         employeeJComboBox.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        employeeJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                employeeJComboBoxActionPerformed(evt);
+            }
+        });
         jPanel2.add(employeeJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 280, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
@@ -236,6 +240,11 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
 
         roleJComboBox.setBackground(new java.awt.Color(0, 102, 102));
         roleJComboBox.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        roleJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                roleJComboBoxActionPerformed(evt);
+            }
+        });
         jPanel2.add(roleJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 280, -1));
 
         createUserJButton.setBackground(new java.awt.Color(0, 153, 153));
@@ -253,6 +262,11 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         nameJTextField.setBackground(new java.awt.Color(0, 102, 102));
         nameJTextField.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         nameJTextField.setBorder(null);
+        nameJTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameJTextFieldActionPerformed(evt);
+            }
+        });
         jPanel2.add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 290, 30));
 
         passwordJTextField.setBackground(new java.awt.Color(0, 102, 102));
@@ -283,19 +297,17 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         userJTable.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         userJTable.setForeground(new java.awt.Color(255, 255, 255));
         userJTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Employee", "Role", "User Name"
-            }
+                new Object[][]{},
+                new String[]{
+                    "Employee", "Role", "User Name"
+                }
         ) {
-            boolean[] canEdit = new boolean [] {
+            boolean[] canEdit = new boolean[]{
                 false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return canEdit[columnIndex];
             }
         });
         userJTable.setFocusable(false);
@@ -307,83 +319,70 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createUserJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserJButtonActionPerformed
-    
-        
-        if(organizationJComboBox.getSelectedItem().equals(null))
-        {organizationJComboBox.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        if (organizationJComboBox.getSelectedItem().equals(null)) {
+            organizationJComboBox.setBorder(BorderFactory.createLineBorder(Color.RED));
             organizationJComboBox.setForeground(Color.red);
             JOptionPane.showMessageDialog(null, "Please select an Organization");
-        }
-        
-        else if(employeeJComboBox.getSelectedItem().equals(null))
-        {employeeJComboBox.setBorder(BorderFactory.createLineBorder(Color.RED));
+        } else if (employeeJComboBox.getSelectedItem().equals(null)) {
+            employeeJComboBox.setBorder(BorderFactory.createLineBorder(Color.RED));
             employeeJComboBox.setForeground(Color.red);
             JOptionPane.showMessageDialog(null, "Please select an Employee");
-        }
-          
-         else if(roleJComboBox.getSelectedItem().equals(null))
-        {roleJComboBox.setBorder(BorderFactory.createLineBorder(Color.RED));
+        } else if (roleJComboBox.getSelectedItem().equals(null)) {
+            roleJComboBox.setBorder(BorderFactory.createLineBorder(Color.RED));
             roleJComboBox.setForeground(Color.red);
             JOptionPane.showMessageDialog(null, "Please select a Role");
-        }
-           
-        else if (nameJTextField.getText().isEmpty()) {
-             nameJTextField.setBorder(BorderFactory.createLineBorder(Color.RED));
+        } else if (nameJTextField.getText().isEmpty()) {
+            nameJTextField.setBorder(BorderFactory.createLineBorder(Color.RED));
             nameJTextField.setForeground(Color.red);
-            
-            JOptionPane.showMessageDialog(null, new JLabel("<html><b>User Name can not be empty!</b></html>") , "Error", JOptionPane.ERROR_MESSAGE);
-                   
+
+            JOptionPane.showMessageDialog(null, new JLabel("<html><b>User Name can not be empty!</b></html>"), "Error", JOptionPane.ERROR_MESSAGE);
+
             //JOptionPane.showMessageDialog(null, "Username cannot be empty");
             //return;
-        }
-        
-         else if (passwordJTextField.getText().length() < 4 ){
+        } else if (passwordJTextField.getText().length() < 4) {
             passwordJTextField.setBorder(BorderFactory.createLineBorder(Color.RED));
             passwordJTextField.setForeground(Color.red);
-            
-            JOptionPane.showMessageDialog(null, new JLabel("<html><b> Password must be atleast 4 digits!</b></html>") , "Error", JOptionPane.ERROR_MESSAGE);
-                   
+
+            JOptionPane.showMessageDialog(null, new JLabel("<html><b> Password must be atleast 4 digits!</b></html>"), "Error", JOptionPane.ERROR_MESSAGE);
+
             //JOptionPane.showMessageDialog(null, "Password should be more than 4 Digit");
             //return;
-        
-        }
-         else if (!checkUserIdExists(nameJTextField.getText())){
-            
-            JOptionPane.showMessageDialog(null, new JLabel("<html><b>User Name already present!</b></html>") , "Error", JOptionPane.ERROR_MESSAGE);
-                   
-             //JOptionPane.showMessageDialog(null, "UserName Already Present","Warning",JOptionPane.WARNING_MESSAGE);
-            //return;
-            }
-         else{
-        String userName = nameJTextField.getText();
-        String password = passwordJTextField.getText();
-        Organization organization = (Organization) organizationJComboBox.getSelectedItem();
-        Employee employee = (Employee) employeeJComboBox.getSelectedItem();
-        Role role = (Role) roleJComboBox.getSelectedItem();
-        
-        organization.getUserAccountDirectory().createUserAccount(userName, password, employee, role);
-        
-        popData();
-        
-        JOptionPane.showMessageDialog(null, new JLabel("<html><b>User Account created successfully!</b></html>") );//, "Error", JOptionPane.ERROR_MESSAGE);
-                   
-        //JOptionPane.showMessageDialog(null, "User account for " + userName + " created Successfully");
+        } else if (!checkUserIdExists(nameJTextField.getText())) {
 
-         dB4OUtil.storeSystem(system);
-        
-        
-        nameJTextField.setText("");
-        passwordJTextField.setText("");
-      //  organizationJComboBox.removeItem(organizationJComboBox.getSelectedItem());
-       //  employeeJComboBox.removeItem(employeeJComboBox.getSelectedItem());
-       //  if(employeeJComboBox.getSelectedItem()== null){
-         //    organizationJComboBox.removeItem(organizationJComboBox.getSelectedItem());
-        // }
-      //  roleJComboBox.removeItem(roleJComboBox.getSelectedItem());
-         }
-        
+            JOptionPane.showMessageDialog(null, new JLabel("<html><b>User Name already present!</b></html>"), "Error", JOptionPane.ERROR_MESSAGE);
+
+            //JOptionPane.showMessageDialog(null, "UserName Already Present","Warning",JOptionPane.WARNING_MESSAGE);
+            //return;
+        } else {
+            String userName = nameJTextField.getText();
+            String password = passwordJTextField.getText();
+            Organization organization = (Organization) organizationJComboBox.getSelectedItem();
+            Employee employee = (Employee) employeeJComboBox.getSelectedItem();
+            Role role = (Role) roleJComboBox.getSelectedItem();
+
+            organization.getUserAccountDirectory().createUserAccount(userName, password, employee, role);
+
+            popData();
+
+            JOptionPane.showMessageDialog(null, new JLabel("<html><b>User Account created successfully!</b></html>"));//, "Error", JOptionPane.ERROR_MESSAGE);
+
+            //JOptionPane.showMessageDialog(null, "User account for " + userName + " created Successfully");
+            dB4OUtil.storeSystem(system);
+
+            nameJTextField.setText("");
+            passwordJTextField.setText("");
+            //  organizationJComboBox.removeItem(organizationJComboBox.getSelectedItem());
+            //  employeeJComboBox.removeItem(employeeJComboBox.getSelectedItem());
+            //  if(employeeJComboBox.getSelectedItem()== null){
+            //    organizationJComboBox.removeItem(organizationJComboBox.getSelectedItem());
+            // }
+            //  roleJComboBox.removeItem(roleJComboBox.getSelectedItem());
+        }
+
     }//GEN-LAST:event_createUserJButtonActionPerformed
-private boolean checkUserIdExists(String userName) {
+
+    private boolean checkUserIdExists(String userName) {
         if (system.getUserAccountDirectory().checkIfUsernameIsUnique(userName)) {
             if (system.getUserAccountDirectory().checkIfUsernameIsUnique(userName)) {
                 for (Network network : system.getNetworkList()) {
@@ -416,9 +415,10 @@ private boolean checkUserIdExists(String userName) {
         }
         return false;
     }
+
     private void organizationJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationJComboBoxActionPerformed
         Organization organization = (Organization) organizationJComboBox.getSelectedItem();
-        if (organization != null){
+        if (organization != null) {
             populateEmployeeComboBox(organization);
             populateRoleComboBox(organization);
         }
@@ -426,22 +426,33 @@ private boolean checkUserIdExists(String userName) {
 
     private void organizationJComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_organizationJComboBoxItemStateChanged
         // TODO add your handling code here:
-        
+
         Organization organization = (Organization) organizationJComboBox.getSelectedItem();
         DefaultTableModel model = (DefaultTableModel) userJTable.getModel();
 
         model.setRowCount(0);
 
-        
         for (UserAccount ua : organization.getUserAccountDirectory().getUserAccountList()) {
-                Object row[] = new Object[3];
-                row[0] = ua.getEmployee();
-                row[1] = ua.getRole();
-                row[2] = ua;
+            Object row[] = new Object[3];
+            row[0] = ua.getEmployee();
+            row[1] = ua.getRole();
+            row[2] = ua;
             //    row[2] = ua.getUsername();
-                ((DefaultTableModel) userJTable.getModel()).addRow(row);
-            }
+            ((DefaultTableModel) userJTable.getModel()).addRow(row);
+        }
     }//GEN-LAST:event_organizationJComboBoxItemStateChanged
+
+    private void employeeJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeJComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_employeeJComboBoxActionPerformed
+
+    private void nameJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameJTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameJTextFieldActionPerformed
+
+    private void roleJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roleJComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_roleJComboBoxActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton createUserJButton;

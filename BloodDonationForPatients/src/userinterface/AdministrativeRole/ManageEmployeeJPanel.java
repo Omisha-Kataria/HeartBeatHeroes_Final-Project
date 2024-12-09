@@ -31,28 +31,28 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
 
     private OrganizationDirectory organizationDir;
     private JPanel userProcessContainer;
-    
+
     EcoSystem system;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
-    
-    
+
     /**
      * Creates new form ManageOrganizationJPanel
      */
-    public ManageEmployeeJPanel(JPanel userProcessContainer,OrganizationDirectory organizationDir, Enterprise enterprise, EcoSystem system) {
+    public ManageEmployeeJPanel(JPanel userProcessContainer, OrganizationDirectory organizationDir, Enterprise enterprise, EcoSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.organizationDir = organizationDir;
         this.system = system;
-        
-        organizationJTable.getTableHeader().setDefaultRenderer(new MyTableFormat());
-        populateOrganizationComboBox();
-        //populateOrganizationEmpComboBox();
-        //populateTable();
+
         enterpriseNameTextField1.setText(enterprise.getName());
-        
+        populateOrganizationComboBox();
+        organizationJTable.getTableHeader().setDefaultRenderer(new MyTableFormat());
+//        populateOrganizationEmpComboBox();
+        populateTable();
+
     }
-     private void populateTable() {
+
+    private void populateTable() {
         DefaultTableModel model = (DefaultTableModel) organizationJTable.getModel();
 
         model.setRowCount(0);
@@ -68,31 +68,30 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         }
 
     }
-    public void populateOrganizationComboBox(){
+
+    public void populateOrganizationComboBox() {
         organizationJComboBox.removeAllItems();
-        
-        for (Organization organization : organizationDir.getOrganizationList()){
+
+        for (Organization organization : organizationDir.getOrganizationList()) {
+            System.out.println(organization.getRealName() + "manageEMp");
             organizationJComboBox.addItem(organization);
-            
-            
-            
         }
     }
-    
-    public void populateOrganizationEmpComboBox(){
+
+    public void populateOrganizationEmpComboBox() {
         organizationEmpJComboBox.removeAllItems();
-        
-        for (Organization organization : organizationDir.getOrganizationList()){
+
+        for (Organization organization : organizationDir.getOrganizationList()) {
             organizationEmpJComboBox.addItem(organization.getRealName());
         }
     }
 
-    private void populateTable(Organization organization){
+    private void populateTable(Organization organization) {
         DefaultTableModel model = (DefaultTableModel) organizationJTable.getModel();
-        
+
         model.setRowCount(0);
-        
-        for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()){
+
+        for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()) {
             Object[] row = new Object[3];
             row[0] = organization;
             row[1] = organization.getRealName();
@@ -100,6 +99,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
             model.addRow(row);
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -152,26 +152,24 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         organizationJTable.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         organizationJTable.setForeground(new java.awt.Color(255, 255, 255));
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Organization Type", "Organization Name", "Employee Name"
-            }
+                new Object[][]{},
+                new String[]{
+                    "Organization Type", "Organization Name", "Employee Name"
+                }
         ) {
-            Class[] types = new Class [] {
+            Class[] types = new Class[]{
                 java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
-            boolean[] canEdit = new boolean [] {
+            boolean[] canEdit = new boolean[]{
                 false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+                return types[columnIndex];
             }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return canEdit[columnIndex];
             }
         });
         organizationJTable.setGridColor(new java.awt.Color(0, 0, 0));
@@ -179,19 +177,20 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         organizationJTable.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
+
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 organizationJTableInputMethodTextChanged(evt);
             }
         });
         jScrollPane1.setViewportView(organizationJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 670, 300));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 670, 300));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Enterprise:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 130, 30));
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 102));
         jPanel3.setPreferredSize(new java.awt.Dimension(1550, 70));
@@ -205,17 +204,17 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 990, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(616, Short.MAX_VALUE))
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(74, 74, 74)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 990, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(616, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 30, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addGap(0, 30, Short.MAX_VALUE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1680, -1));
@@ -281,6 +280,11 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         organizationEmpJComboBox.setBackground(new java.awt.Color(0, 102, 102));
         organizationEmpJComboBox.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         organizationEmpJComboBox.setForeground(new java.awt.Color(255, 255, 255));
+        organizationEmpJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                organizationEmpJComboBoxActionPerformed(evt);
+            }
+        });
         jPanel2.add(organizationEmpJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 222, 300, 30));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
@@ -307,7 +311,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 160, 370, 450));
 
         nameSeparator4.setForeground(new java.awt.Color(255, 255, 255));
-        add(nameSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 200, 10));
+        add(nameSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 210, 10));
 
         enterpriseNameTextField1.setEditable(false);
         enterpriseNameTextField1.setBackground(new java.awt.Color(0, 153, 153));
@@ -318,12 +322,13 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
                 enterpriseNameTextField1ActionPerformed(evt);
             }
         });
-        add(enterpriseNameTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 200, 30));
+        add(enterpriseNameTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 210, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void organizationJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationJComboBoxActionPerformed
         Organization organization = (Organization) organizationJComboBox.getSelectedItem();
-        if (organization != null){
+        if (organization != null) {
+            System.out.println(organization);
             populateTable(organization);
         }
     }//GEN-LAST:event_organizationJComboBoxActionPerformed
@@ -338,16 +343,15 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
 
     private void organizationJComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_organizationJComboBoxMouseClicked
         // TODO add your handling code here:
-       
-        
+
     }//GEN-LAST:event_organizationJComboBoxMouseClicked
 
     private void organizationJComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_organizationJComboBoxItemStateChanged
         // TODO add your handling code here:
-         Organization organization = (Organization) organizationJComboBox.getSelectedItem();
+        Organization organization = (Organization) organizationJComboBox.getSelectedItem();
         organizationEmpJComboBox.removeAllItems();
         organizationEmpJComboBox.addItem(organization.getRealName());
-        
+
     }//GEN-LAST:event_organizationJComboBoxItemStateChanged
 
     private void organizationJTableInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_organizationJTableInputMethodTextChanged
@@ -360,67 +364,59 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
     private void btnCreateEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateEmpActionPerformed
         String check1 = "";
         Organization organization = (Organization) organizationJComboBox.getSelectedItem();
-        
-        if (organizationJComboBox.getSelectedItem().equals(null) )
-        {
+
+        if (organizationJComboBox.getSelectedItem().equals(null)) {
             organizationJComboBox.setBorder(BorderFactory.createLineBorder(Color.RED));
             organizationJComboBox.setForeground(Color.red);
-            JOptionPane.showMessageDialog(null, 
-                    new JLabel("<html><b>Select an Organization Type!</b></html>"), 
+            JOptionPane.showMessageDialog(null,
+                    new JLabel("<html><b>Select an Organization Type!</b></html>"),
                     "Warning", JOptionPane.WARNING_MESSAGE);
             check1 = "return";
-        }
-        
-        else if (organizationEmpJComboBox.getSelectedItem().equals(null) )
-        {
-           organizationEmpJComboBox.setBorder(BorderFactory.createLineBorder(Color.RED));
+        } else if (organizationEmpJComboBox.getSelectedItem().equals(null)) {
+            organizationEmpJComboBox.setBorder(BorderFactory.createLineBorder(Color.RED));
             organizationEmpJComboBox.setForeground(Color.red);
-             JOptionPane.showMessageDialog(null, 
-                     new JLabel("<html><b>Select an Organization Name!</b></html>"), 
-                     "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,
+                    new JLabel("<html><b>Select an Organization Name!</b></html>"),
+                    "Warning", JOptionPane.WARNING_MESSAGE);
             check1 = "return";
-        }
-        else if (nameJTextField.getText().isEmpty()) {
-           nameJTextField.setBorder(BorderFactory.createLineBorder(Color.RED));
+        } else if (nameJTextField.getText().isEmpty()) {
+            nameJTextField.setBorder(BorderFactory.createLineBorder(Color.RED));
             nameJTextField.setForeground(Color.red);
-             JOptionPane.showMessageDialog(null, 
-                     new JLabel("<html><b>Employee Name can not be same!</b></html>"), 
-                     "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,
+                    new JLabel("<html><b>Employee Name can not be same!</b></html>"),
+                    "Warning", JOptionPane.WARNING_MESSAGE);
             //JOptionPane.showMessageDialog(null, "Employee name cannot be empty.");
             check1 = "return";
             return;
-        }
-        
-        else{
-        
+        } else {
+
             for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()) {
 
-            if (employee.getName().equals(nameJTextField.getText())) {
-                JOptionPane.showMessageDialog(null, 
-                        new JLabel("<html><b>Multiple employees can not have same name!</b></html>"), 
-                        "Warning", JOptionPane.WARNING_MESSAGE);
-                check1 = "return";
-                return;
-            }}
+                if (employee.getName().equals(nameJTextField.getText())) {
+                    JOptionPane.showMessageDialog(null,
+                            new JLabel("<html><b>Multiple employees can not have same name!</b></html>"),
+                            "Warning", JOptionPane.WARNING_MESSAGE);
+                    check1 = "return";
+                    return;
+                }
+            }
         }
-        
-        if(check1 == "")
-        {
-        
-        String name = nameJTextField.getText();
-        
-        organization.getEmployeeDirectory().createEmployee(name);
-        populateTable(organization);
-        
-        final ImageIcon icon = new ImageIcon("..\\src\\Images\\approved.png");
-        JOptionPane.showMessageDialog(null, "New Employee Created!","Approved",JOptionPane.INFORMATION_MESSAGE,icon);
-                   
-        //JOptionPane.showMessageDialog(null, "Employee created successfully!");
-        
-        nameJTextField.setText("");
-        //organizationJComboBox.removeItem(organizationJComboBox.getSelectedItem());
-        //organizationEmpJComboBox.removeItem(organizationEmpJComboBox.getSelectedItem());
-        dB4OUtil.storeSystem(system);
+
+        if (check1 == "") {
+
+            String name = nameJTextField.getText();
+
+            organization.getEmployeeDirectory().createEmployee(name);
+            populateTable(organization);
+
+            final ImageIcon icon = new ImageIcon("..\\src\\Images\\approved.png");
+            JOptionPane.showMessageDialog(null, "New Employee Created!", "Approved", JOptionPane.INFORMATION_MESSAGE, icon);
+
+            //JOptionPane.showMessageDialog(null, "Employee created successfully!");
+            nameJTextField.setText("");
+            //organizationJComboBox.removeItem(organizationJComboBox.getSelectedItem());
+            //organizationEmpJComboBox.removeItem(organizationEmpJComboBox.getSelectedItem());
+            dB4OUtil.storeSystem(system);
         }
     }//GEN-LAST:event_btnCreateEmpActionPerformed
 
@@ -431,6 +427,10 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
     private void enterpriseNameTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseNameTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_enterpriseNameTextField1ActionPerformed
+
+    private void organizationEmpJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationEmpJComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_organizationEmpJComboBoxActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateEmp;

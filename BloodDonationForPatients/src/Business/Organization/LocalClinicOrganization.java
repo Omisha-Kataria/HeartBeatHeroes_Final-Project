@@ -6,7 +6,6 @@
 package Business.Organization;
 
 import Business.BloodTypes.BloodCount;
-import Business.BloodTypes.PersonBloodTypes;
 import Business.Role.LocalClinicStaffRole;
 import Business.Role.Role;
 import java.util.ArrayList;
@@ -16,12 +15,13 @@ import java.util.HashMap;
  *
  * @author krish19
  */
-public class LocalClinicOrganization extends Organization{
-        BloodCount inventory;
+public class LocalClinicOrganization extends Organization {
+
+    BloodCount inventory;
 
     // Constructor to initialize LocalClinicOrganization with a name and parent OrganizationDirectory
     public LocalClinicOrganization(String name, OrganizationDirectory parent) {
-        super(name == null ? Organization.Type.LocalClinic.getValue() : name, parent);
+        super(name == null ? Organization.Type.LocalClinic.getValue() : name, parent, Organization.Type.LocalClinic.getValue());
         inventory = new BloodCount();
     }
 
@@ -48,4 +48,3 @@ public class LocalClinicOrganization extends Organization{
         return roles;
     }
 }
-

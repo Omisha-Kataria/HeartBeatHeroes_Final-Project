@@ -17,7 +17,7 @@ public class HeadquarterOrganization extends Organization {
 
     // Constructor for HeadquarterOrganization, initializes with the given name or default to "Headquarter"
     public HeadquarterOrganization(String name, OrganizationDirectory parent) {
-        super(name == null ? Organization.Type.Headquarter.getValue() : name, parent);
+        super(name == null ? Organization.Type.Headquarter.getValue() : name, parent, Organization.Type.Headquarter.getValue());
     }
 
     // Returns the list of roles supported by the HeadquarterOrganization
