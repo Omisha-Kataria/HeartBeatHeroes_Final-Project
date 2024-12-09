@@ -100,14 +100,12 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         tblNetwork.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         tblNetwork.setForeground(new java.awt.Color(255, 255, 255));
         tblNetwork.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][] {
-
-                },
-                new String[] {
-                        "Name", "State", "Country"
+                new Object[][]{},
+                new String[]{
+                    "Name", "State", "Country"
                 }) {
-            boolean[] canEdit = new boolean[] {
-                    false, false, false
+            boolean[] canEdit = new boolean[]{
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -149,7 +147,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         txtNetWorkName.setBackground(new java.awt.Color(0, 102, 102));
         txtNetWorkName.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         txtNetWorkName.setForeground(new java.awt.Color(204, 255, 204));
-        txtNetWorkName.setText("WorldCord");
+        txtNetWorkName.setText("Heartbeat Heroes");
         txtNetWorkName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNetWorkNameActionPerformed(evt);
@@ -343,8 +341,9 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
                     return;
                 }
             }
-        } else
+        } else {
             return;
+        }
         JOptionPane.showMessageDialog(null, new JLabel("<html><b>Network Name can not be found!</b></html>"), "Error",
                 JOptionPane.ERROR_MESSAGE);
     }// GEN-LAST:event_btnDeleteNetworkActionPerformed

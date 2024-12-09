@@ -1,6 +1,5 @@
 package Business;
 
-import Business.BloodTypes.PersonBloodTypes;
 import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
@@ -13,7 +12,6 @@ import Business.Role.LabEmployeeRole;
 import Business.Role.LocalClinicStaffRole;
 import Business.Role.LogisticsOfficerRole;
 import Business.Role.SystemAdminRole;
-import Business.Statuses.BloodRequestStatuses;
 import Business.UserAccount.UserAccount;
 
 /**
@@ -40,7 +38,7 @@ public class ConfigureASystem {
 
         // Setting up a new network for the US region
         Network worldCordNetwork = system.createAndAddNetwork();
-        worldCordNetwork.setName("Wordcord US Network");
+        worldCordNetwork.setName("Hearbeat Heroes");
         worldCordNetwork.setCountry("US");
 
         Enterprise hq = worldCordNetwork.getEnterpriseDirectory().createAndAddEnterprise("US Headquarters", Enterprise.EnterpriseType.Headquarter);
@@ -89,7 +87,6 @@ public class ConfigureASystem {
         UserAccount ua = system.getUserAccountDirectory().createUserAccount("sysadmin", "sysadmin", employee, new SystemAdminRole());
 
         // addSampleRequestData(system);
-
         return system;
     }
 }
